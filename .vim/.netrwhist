@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/home/liy/workdir/amlogic/rootfs'
+let g:netrw_dirhist_2='/'
+let g:netrw_dirhist_3='/home/liy/workdir/amlogic/ipcdemo'
+let g:netrw_dirhist_4='/home/liy/workdir/amlogic/ipcdemo/ipc-refapp/pipeline'
+let g:netrw_dirhist_5='/home/liy/workdir/amlogic/ipcdemo/ipc-refapp'
+let g:netrw_dirhist_6='/home/liy/workdir/amlogic/ipcdemo/ipc-refapp/common'
