@@ -44,17 +44,16 @@ cs add cscope.out
 " (relies on automatic creation of new stars on 'o' )
 function! s:insert_header()
   let filename = expand("%:t")
-  execute "normal! i/********************************************************************"
-  execute "normal! o>    Filename: " . filename
-  execute "normal! o>    Author:   liyao"
-  execute "normal! o>    Created Time: ".strftime("%c")
-  execute "normal! o>    Description:  "
-  execute "normal! o"
-  execute "normal! o********************************************************************/"
+  execute "normal! i /*!"
+  execute "normal! o@file " .filename
+  execute "normal! o@brief "
+  execute "normal! o@author liyao"
+  execute "normal! o@date ".strftime("%c")
+  execute "normal! o/"
   normal! o
   normal! o
 endfunction
-autocmd BufNewFile *.{h,c,hpp,cpp} call <SID>insert_header()
+autocmd BufNewFile *.{h,c,cpp} call <SID>insert_header()
 
 " Automatic C / C++ header guards
 function! s:insert_gates()
@@ -65,17 +64,17 @@ function! s:insert_gates()
   execute "normal! Go#endif /* " . gatename . " */"
   normal! k
 endfunction
-autocmd BufNewFile *.{h,hpp} call <SID>insert_gates()
+autocmd BufNewFile *.{h} call <SID>insert_gates()
 
 " Automatic header file inclusion (foo.c includes foo.h)
 function! s:insert_header_incl()
   let filename = expand("%:t")
   execute "normal! i#include " . "\"" . substitute(filename, "\\.c", "\\.h", "g") . "\""
   normal! o
-  execute "normal! o/* ###################   MACROS  -  LOCAL TO THIS SOURCE FILE   ############################# */"
+  execute "normal! o/********************** MACROS AND TYPE DEFINITIONS  **********************/" 
   normal! o
-  execute "normal! o/* ###############   TYPE DEFINITIONS  -  LOCAL TO THIS SOURCE FILE   ####################### */"
+  execute "normal! o/******************** STRUCT AND GLOBAL DEFINITIONS  **********************/"
   normal! o
-  execute "normal! o/* #########################   FUNCTION DEFINITIONS   ######################################## */"
+  execute "normal! o/************************ FUNCTION DEFINITIONS ***************************/"
 endfunction
 autocmd BufNewFile *.{c,cpp} call <SID>insert_header_incl()
