@@ -33,6 +33,7 @@ require("mason-lspconfig").setup({
     "bashls",
     "clangd",
     "pyright",
+    "gopls",
     }
 })
 
