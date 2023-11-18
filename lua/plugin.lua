@@ -35,7 +35,11 @@ require("lazy").setup({
         }
     },
     "nvim-tree/nvim-tree.lua",
-    "nvim-tree/nvim-web-devicons",
+    {
+        'akinsho/bufferline.nvim', 
+        version = "*", 
+        dependencies = 'nvim-tree/nvim-web-devicons'
+    }
 })
 
 require("mason").setup()
@@ -157,15 +161,27 @@ require("aerial").setup({
 -- require("neo-tree").setup()
 -- pass to setup along with your other options
 require("nvim-tree").setup {
-  on_attach = function(bufnr)
-  local api = require "nvim-tree.api"
-  local function opts(desc)
-    return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
-  end
-  api.config.mappings.default_on_attach(bufnr)
-  vim.keymap.set('n', '<C-t>', api.tree.change_root_to_parent,        opts('Up'))
-  vim.keymap.set('n', '?',     api.tree.toggle_help,                  opts('Help'))
-end
+    on_attach = function(bufnr)
+        local api = require "nvim-tree.api"
+        local function opts(desc)
+            return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+        end
+        api.config.mappings.default_on_attach(bufnr)
+        vim.keymap.set('n', '<C-t>', api.tree.change_root_to_parent,        opts('Up'))
+        vim.keymap.set('n', '?',     api.tree.toggle_help,                  opts('Help'))
+    end
+}
 
-
+require("bufferline").setup {
+    options = {
+        -- 使用 nvim 内置lsp
+        diagnostics = "nvim_lsp",
+        -- 左侧让出 nvim-tree 的位置
+        offsets = {{
+            filetype = "NvimTree",
+            text = "File Explorer",
+            highlight = "Directory",
+            text_align = "left"
+        }}
+    }
 }

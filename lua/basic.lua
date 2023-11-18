@@ -35,6 +35,7 @@ vim.o.updatetime = 300
 vim.o.timeoutlen = 400
 vim.g.directory = "/tmp//"
 
+vim.opt.termguicolors = true
 --[==[
 vim.o.clipboard = "unnamedplus"
 vim.api.nvim_create_autocmd("TextYankPost", {

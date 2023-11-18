@@ -23,10 +23,13 @@ map("n", "<F6>", ":T clang++ -O2 -std=c++17 -fsanitize=address -DLOCAL -I/Users/
 map("n", "<A-l>", ":AerialToggle<CR>", opt)
 
 -- nvim-tree
-map("n", "<A-f>", ":NvimTreeToggle<CR>", opt)
+map("n", "<A-m>", ":NvimTreeToggle<CR>", opt)
+
+-- buffer-line
+map("n", "<C-h>", ":BufferLineCyclePrev<CR>", opt)
+map("n", "<C-l>", ":BufferLineCycleNext<CR>", opt)
 
 local pluginKeys = {}
-
 pluginKeys.telescopeList = {
   i = {
     -- 上下移动
