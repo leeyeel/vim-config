@@ -26,6 +26,16 @@ require("lazy").setup({
     "nvim-treesitter/nvim-treesitter",
     "nvim-tree/nvim-web-devicons",
     "stevearc/aerial.nvim",
+    {
+        "nvim-neo-tree/neo-tree.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+            "MunifTanjim/nui.nvim",
+        }
+    },
+    "nvim-tree/nvim-tree.lua",
+    "nvim-tree/nvim-web-devicons",
 })
 
 require("mason").setup()
@@ -143,3 +153,19 @@ require("nvim-treesitter.configs").setup {
 require("aerial").setup({
   open_automatic = true,
 })
+
+-- require("neo-tree").setup()
+-- pass to setup along with your other options
+require("nvim-tree").setup {
+  on_attach = function(bufnr)
+  local api = require "nvim-tree.api"
+  local function opts(desc)
+    return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+  end
+  api.config.mappings.default_on_attach(bufnr)
+  vim.keymap.set('n', '<C-t>', api.tree.change_root_to_parent,        opts('Up'))
+  vim.keymap.set('n', '?',     api.tree.toggle_help,                  opts('Help'))
+end
+
+
+}

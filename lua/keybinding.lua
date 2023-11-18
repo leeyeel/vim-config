@@ -19,6 +19,12 @@ map("n", "<leader>f", "<cmd>lua vim.lsp.buf.format()<CR>", opt)
 map("n", "<F5>", ":T clang++ -O2 -std=c++17 -fsanitize=address -DLOCAL -I/Users/syh/solution/header/ %:p -o %:p:r && %:p:r<CR>", opt)
 map("n", "<F6>", ":T clang++ -O2 -std=c++17 -fsanitize=address -DLOCAL -I/Users/syh/solution/header/ %:p -o %:p:r && %:p:r < %:p:h/in <CR>", opt)
 
+-- aerial
+map("n", "<A-l>", ":AerialToggle<CR>", opt)
+
+-- nvim-tree
+map("n", "<A-f>", ":NvimTreeToggle<CR>", opt)
+
 local pluginKeys = {}
 
 pluginKeys.telescopeList = {
