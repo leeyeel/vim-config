@@ -1,17 +1,8 @@
 # vim-config
-neovim configure on ubuntu 22.04LTS
+
+主要面向c/c++的精简neovim配置
 
 ### 介绍
-
-转向neovim.
-
-vim的插件相对较少，甚至使用部分插件时已经不兼容vim8,而当我升级到vim9之后，
-更多原来的插件报兼容性错误，vim9做了较多的改动，重新适应vim9不如直接。。。
-
-但是neovim也有一大堆问题，最主要最主要的问题就是他现在更新太快，
-插件也极其不稳定，半年之后现在用的一大堆插件可能就出现停更或者不兼容的问题。
-
-但neovim的社区更活跃
 
 配色:
 molokai
@@ -29,6 +20,11 @@ molokai
     - "hrsh7th/nvim-cmp",
     - "hrsh7th/cmp-vsnip",
     - "hrsh7th/vim-vsnip"
+- nvim-treesitter/nvim-treesitter: 基于lsp的高亮显示
+- nvim-tree/nvim-web-devicons: 各种特殊字符
+- stevearc/aerial.nvim: 用于显示文件内符号大纲
+- nvim-tree/nvim-tree.lua: 用于显示文件列表,文件浏览
+- akinsho/bufferline.nvim: 用于在插件内跳转打开新文件时，把新文件当作新标签
 
 ### 安装依赖：
 
@@ -40,3 +36,10 @@ xsel(可选)
 ```
 cp colors init.lua lua -rf ~/.config/nvim/
 ```
+
+### 主要快捷键
+
+- alt + m: 打开或关闭文件浏览
+- alt + l: 打开或关闭大纲浏览
+- ctl + h: 查看上一个标签
+- ctl + l: 查看下一个标签
