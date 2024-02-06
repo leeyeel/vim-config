@@ -31,6 +31,10 @@ require("lazy").setup({
         'akinsho/bufferline.nvim',
         version = "*",
         dependencies = 'nvim-tree/nvim-web-devicons'
+    },
+    {
+        'nvim-lualine/lualine.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' }
     }
 })
 
@@ -163,3 +167,6 @@ require("bufferline").setup {
         }}
     }
 }
+
+-- A blazing fast and easy to configure Neovim statusline written in Lua
+require('lualine').setup()
