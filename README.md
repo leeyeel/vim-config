@@ -25,6 +25,7 @@ molokai
 - stevearc/aerial.nvim: 用于显示文件内符号大纲
 - nvim-tree/nvim-tree.lua: 用于显示文件列表,文件浏览
 - akinsho/bufferline.nvim: 用于在插件内跳转打开新文件时，把新文件当作新标签
+- nvim-lualine/lualine.nvim: 用于显示各种状态，比如插入模式，编辑模式等
 
 ### 安装依赖：
 
@@ -43,3 +44,9 @@ cp colors init.lua lua -rf ~/.config/nvim/
 - alt + l: 打开或关闭大纲浏览
 - ctl + h: 查看上一个标签
 - ctl + l: 查看下一个标签
+- ctl + n: 补全时选中下个候选
+- ctl + n: 补全时选中上个候选
+
+### 安装Lsp server
+
+使用LspInstall xxx 命令
