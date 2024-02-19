@@ -35,9 +35,9 @@ xsel(可选)
 ### 安装
 
 ```
-mkdir -p ~/.config/nvim
-cp colors init.lua lua -rf ~/.config/nvim/
+git clone https://github.com/leeyeel/vim-config.git ~/.config/nvim
 ```
+安装完成后使用`nvim`启动，nvim会自动安装所需插件
 
 ### 主要快捷键
 
