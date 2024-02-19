@@ -35,6 +35,7 @@ xsel(可选)
 ### 安装
 
 ```
+mkdir -p ~/.config/nvim
 cp colors init.lua lua -rf ~/.config/nvim/
 ```
 
