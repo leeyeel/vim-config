@@ -39,6 +39,9 @@ git clone https://github.com/leeyeel/vim-config.git ~/.config/nvim
 ```
 安装完成后使用`nvim`启动，nvim会自动安装所需插件
 
+如果需要自己添加插件，可在`lua/plugin.lua`文件中，
+`require("lazy").setup()`后追加一行自己的插件即可，注意要版本兼容。
+
 ### 主要快捷键
 
 - alt + m: 打开或关闭文件浏览
@@ -48,6 +51,25 @@ git clone https://github.com/leeyeel/vim-config.git ~/.config/nvim
 - ctl + n: 补全时选中下个候选
 - ctl + n: 补全时选中上个候选
 
-### 安装Lsp server
+### Lsp 使用技巧
 
-使用LspInstall xxx 命令
+- lsp server安装
+
+使用`:LspInstall xxx` 命令即可
+
+- compile_commands.json 文件生成
+
+lsp的跳转依赖compile_commands.json, 
+在CMake及Make工具链下生成compile_commands.json略有不同，CMake下生成可通过添加
+
+```
+-DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+```
+
+选项开启, Make工具链下可在`make`前添加`bear`命令:
+```
+baer -- make
+```
+测bear生成效果更好，因为`bear`可以捕获真实的编译命令，所以通常 比`CMake`生成的`compile_commands.json`更完整。
+
+
