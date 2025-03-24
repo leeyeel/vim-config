@@ -1,6 +1,8 @@
 # vim-config
 
-主要面向c/c++的精简neovim配置
+主要面向c/c++的精简neovim配置，
+
+blog中有对每个插件[更加详细一点的介绍](https://blog.whatsroot.xyz/2023/11/05/neovim-and-plugin/)
 
 ### 介绍
 
