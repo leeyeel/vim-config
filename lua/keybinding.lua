@@ -1,5 +1,9 @@
 local map = vim.api.nvim_set_keymap
 local opt = { noremap = true, silent = true }
+-- userdefined
+map("n", "<leader>e", "<cmd>tabedit<Space>", { noremap = true })
+
+
 -- LSP
 -- rename
 map("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opt)
