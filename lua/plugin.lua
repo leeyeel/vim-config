@@ -65,14 +65,8 @@ require("mason-lspconfig").setup_handlers({
     }
   }
   end,
-  ["tsserver"] = function ()
-      require('lspconfig').tsserver.setup {
-          init_options = {
-              preferences = {
-                  disableSuggestions = true,
-              },
-          },
-      }
+  ["vtsls"] = function ()
+      require('lspconfig').vtsls.setup {}
   end,
   ["clangd"] = function ()
     require('lspconfig').clangd.setup {
@@ -179,3 +173,4 @@ require("bufferline").setup {
 
 -- A blazing fast and easy to configure Neovim statusline written in Lua
 require('lualine').setup()
+

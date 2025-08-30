@@ -1,50 +1,54 @@
-vim.o.nocompatible = true
-vim.o.filetype = true
-vim.o.background="dark"
-vim.o.tabstop = 4
-vim.o.softtabstop = 4
-vim.o.expandtab = true
-vim.o.autoindent = true
-vim.o.termguicolors = true
-vim.o.mouse = ""
-vim.o.hidden = true
-vim.o.title = true
-vim.o.conceallevel = 1
-vim.o.undofile = true
-vim.o.cursorline = true
-vim.o.pumblend = 12
-vim.o.ignorecase = true
-vim.o.incsearch = true
-vim.o.smartcase = true
-vim.o.number = true
-vim.o.shiftround = true
-vim.o.shiftwidth = 4
-vim.o.smartindent = true
-vim.o.splitbelow = true
-vim.o.splitright = true
-vim.o.linebreak = true
-vim.o.signcolumn = "yes"
-vim.o.textwidth = 120
-vim.o.wrap = false
-vim.o.showbreak = ">>"
-vim.o.fillchars = "diff:╱"
-vim.o.scrolloff = 2
-vim.o.sidescrolloff = 5
 vim.g.mapleader = " "
-vim.o.updatetime = 300
-vim.o.timeoutlen = 400
-vim.g.directory = "/tmp//"
 
+vim.opt.background="dark"
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.expandtab = true
+vim.opt.autoindent = true
 vim.opt.termguicolors = true
---[==[
-vim.o.clipboard = "unnamedplus"
+vim.opt.mouse = ""
+vim.opt.hidden = true
+vim.opt.title = true
+vim.opt.conceallevel = 1
+vim.opt.undofile = true
+vim.opt.cursorline = true
+vim.opt.pumblend = 12
+vim.opt.ignorecase = true
+vim.opt.incsearch = true
+vim.opt.smartcase = true
+vim.opt.number = true
+vim.opt.shiftround = true
+vim.opt.shiftwidth = 4
+vim.opt.smartindent = true
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+vim.opt.linebreak = true
+vim.opt.signcolumn = "yes"
+vim.opt.textwidth = 120
+vim.opt.wrap = false
+vim.opt.showbreak = ">>"
+vim.opt.fillchars = "diff:╱"
+vim.opt.scrolloff = 2
+vim.opt.sidescrolloff = 5
+vim.opt.updatetime = 300
+vim.opt.timeoutlen = 400
+vim.opt.directory = "/tmp//"
+
+vim.opt.clipboard = "unnamedplus"
 vim.api.nvim_create_autocmd("TextYankPost", {
     callback = function()
-        vim.cmd[[
-        silent !xsel -bi
-        silent !xsel -bo | xsel -bi
-        ]]
+        if vim.fn.has('unix') == 1 then
+            if vim.fn.has('linux') == 1 then
+                vim.cmd[[
+                silent !xsel -bi
+                silent !xsel -bo | xsel -bi
+                ]]
+            elseif vim.fn.has('mac') == 1 then
+                vim.cmd[[
+                silent !pbcopy < %:p
+                ]]
+            end
+        end
     end
 })
---]==]
 

@@ -1,1 +1,2 @@
-vim.cmd('colorscheme '..'molokai')
+local theme = 'molokai'
+vim.cmd('colorscheme '..theme)
