@@ -32,7 +32,11 @@ molokai
 ### 安装依赖：
 
 neovim 0.9+
-xsel(可选)
+xsel/pbcopy(可选)
+
+xsel/pbcopy可实现neovim复制的内容到系统剪切板，
+linux系统下使用xsel,macos使用pbcopy
+
 
 ### 安装
 
