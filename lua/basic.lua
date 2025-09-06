@@ -33,22 +33,5 @@ vim.opt.sidescrolloff = 5
 vim.opt.updatetime = 300
 vim.opt.timeoutlen = 400
 vim.opt.directory = "/tmp//"
-
 vim.opt.clipboard = "unnamedplus"
-vim.api.nvim_create_autocmd("TextYankPost", {
-    callback = function()
-        if vim.fn.has('unix') == 1 then
-            if vim.fn.has('linux') == 1 then
-                vim.cmd[[
-                silent !xsel -bi
-                silent !xsel -bo | xsel -bi
-                ]]
-            elseif vim.fn.has('mac') == 1 then
-                vim.cmd[[
-                silent !pbcopy < %:p
-                ]]
-            end
-        end
-    end
-})
 
