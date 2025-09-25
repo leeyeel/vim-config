@@ -33,6 +33,10 @@ map("n", "<A-m>", ":NvimTreeToggle<CR>", opt)
 map("n", "<C-h>", ":BufferLineCyclePrev<CR>", opt)
 map("n", "<C-l>", ":BufferLineCycleNext<CR>", opt)
 
+vim.keymap.set('n', 'K', function()
+  vim.diagnostic.open_float(nil, { focusable = false, border = "rounded" })
+end)
+
 local pluginKeys = {}
 pluginKeys.telescopeList = {
   i = {
