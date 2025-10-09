@@ -1,8 +1,8 @@
 vim.g.mapleader = " "
 
 vim.opt.background="dark"
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
 vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.termguicolors = true
@@ -18,7 +18,7 @@ vim.opt.incsearch = true
 vim.opt.smartcase = true
 vim.opt.number = true
 vim.opt.shiftround = true
-vim.opt.shiftwidth = 4
+vim.opt.shiftwidth = 2
 vim.opt.smartindent = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
